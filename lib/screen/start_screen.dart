@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'image_screen.dart';
+import 'material_design_screen.dart';
+
 class StartScreen extends StatelessWidget {
   //pre-defined rout for this screen so that we don't have to re-type it every time
   static const routeName = '/startScreen';
@@ -28,25 +31,14 @@ class StartScreen extends StatelessWidget {
       body: Column(
         //set of stacked widgets
         children: [
-          //Button that says 'Menu 1' and prints 'Menu 1' upon being pressed
           RaisedButton(
-            //event that happens upon pressing the button
-            onPressed: (){
-              print("Menu 1");
-            },
-            //text on the button
-            child: Text("Menu 1"),
+            onPressed: () => Navigator.pushNamed(context, MaterialDesignScreen.routeName),
+            child: Text("Material Design Demo"),
           ),
-          //Button that says 'Menu 2' and prints 'Menu 2' upon being pressed
           RaisedButton(
-            //event that happens upon pressing the button
-            onPressed: (){
-              print("Menu 2");
-            },
-            //text on the button
-            child: Text("Menu 2"),
+            onPressed: () => Navigator.pushNamed(context, ImageScreen.routeName),
+            child: Text("Image Demo"),
           ),
-          //text - kinda self-explainatory
           Text("Third Menu"),
         ],
       ), 
@@ -91,6 +83,19 @@ class StartScreen extends StatelessWidget {
         },
         child: Icon(Icons.add),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        //needs at least two items
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: "Business"),
+        ],
+        //which item on the navigation bar is active on default(on this screen)
+        currentIndex: 0,
+        //what happens when an item in the navigation bar is tapped
+        onTap: (index){
+          print("Current index is $index");
+        },
+      ) ,
     );
   }
 }
