@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lesson1/screen/button_screen.dart';
+import 'package:lesson1/screen/font_screen.dart';
 
 import 'image_screen.dart';
 import 'material_design_screen.dart';
@@ -10,24 +12,19 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //Scaffolds are the structure of flutter apps: think grids for css/bootstrap
     return Scaffold(
-      //bar at the top of the screen
       appBar: AppBar(
-        //Title of the screen. Appears on the appbar
         title: Text('Start Menu'),
-        //actions that can be taken in the appbar
         actions: [
-          //a bell icon. Prints 'Alarm'
           IconButton(icon: Icon(Icons.alarm), onPressed: (){
             print("Alarm");
             }),
-          //message icon. Prints 'Message'
           IconButton(icon: Icon(Icons.message_sharp), onPressed: (){
             print("message");
           }),
         ],
       ), 
       //body of the screen. Column layout type stacks widgets on top of each other
-      //should be useful for formats like 'cards'-style info blocks
+      //should be useful for formats like 'cards'-style info blocks -> Containters in dart
       body: Column(
         //set of stacked widgets
         children: [
@@ -39,7 +36,14 @@ class StartScreen extends StatelessWidget {
             onPressed: () => Navigator.pushNamed(context, ImageScreen.routeName),
             child: Text("Image Demo"),
           ),
-          Text("Third Menu"),
+          RaisedButton(
+            onPressed: () => Navigator.pushNamed(context, ButtonScreen.routeName),
+            child: Text("Button Demo"),
+          ),
+          RaisedButton(
+            onPressed: () => Navigator.pushNamed(context, FontScreen.routeName),
+            child: Text("Custom Font Demo"),
+          ),
         ],
       ), 
       //swing-out menu with hamburger menu icon
@@ -48,7 +52,6 @@ class StartScreen extends StatelessWidget {
         child: ListView(
           //set of items in ListView
           children: [
-            //Title of drawer
             DrawerHeader(
               child: Text("Drawer Header"),
             ),
