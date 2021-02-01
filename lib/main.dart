@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lesson1/screen/businesscard_screen.dart';
 import 'package:lesson1/screen/button_screen.dart';
+import 'package:lesson1/screen/expandedwidget_screen.dart';
 import 'package:lesson1/screen/font_screen.dart';
 import 'package:lesson1/screen/image_screen.dart';
 import 'package:lesson1/screen/material_design_screen.dart';
+import 'package:lesson1/screen/rowcol_screen.dart';
 import 'package:lesson1/screen/start_screen.dart';
 
 
@@ -27,7 +30,7 @@ class Lesson1App extends StatelessWidget {
         fontFamily: 'Lobster',
         primaryColor: Colors.red[700],
         textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 30.0, color: Colors.yellow[900])
+          button: TextStyle(fontFamily: "Lobster", fontSize: 28.0)
         ),
       ),
 
@@ -38,7 +41,10 @@ class Lesson1App extends StatelessWidget {
         MaterialDesignScreen.routeName : (context) => MaterialDesignScreen(),
         ImageScreen.routeName : (context) => ImageScreen(),
         ButtonScreen.routeName : (context) => ButtonScreen(),
-        FontScreen.routeName : (constext) => FontScreen(),
+        FontScreen.routeName : (context) => FontScreen(),
+        RowColScreen.routeName : (context) => RowColScreen(),
+        ExpandedWidgetScreen.routeName : (context) => ExpandedWidgetScreen(),
+        BusinessCardScreen.routeName : (context) => BusinessCardScreen(),
       }
     );
   }

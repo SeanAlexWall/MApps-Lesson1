@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lesson1/screen/businesscard_screen.dart';
 import 'package:lesson1/screen/button_screen.dart';
+import 'package:lesson1/screen/expandedwidget_screen.dart';
 import 'package:lesson1/screen/font_screen.dart';
+import 'package:lesson1/screen/rowcol_screen.dart';
 
 import 'image_screen.dart';
 import 'material_design_screen.dart';
@@ -25,26 +28,43 @@ class StartScreen extends StatelessWidget {
       ), 
       //body of the screen. Column layout type stacks widgets on top of each other
       //should be useful for formats like 'cards'-style info blocks -> Containters in dart
-      body: Column(
-        //set of stacked widgets
-        children: [
-          RaisedButton(
-            onPressed: () => Navigator.pushNamed(context, MaterialDesignScreen.routeName),
-            child: Text("Material Design Demo"),
-          ),
-          RaisedButton(
-            onPressed: () => Navigator.pushNamed(context, ImageScreen.routeName),
-            child: Text("Image Demo"),
-          ),
-          RaisedButton(
-            onPressed: () => Navigator.pushNamed(context, ButtonScreen.routeName),
-            child: Text("Button Demo"),
-          ),
-          RaisedButton(
-            onPressed: () => Navigator.pushNamed(context, FontScreen.routeName),
-            child: Text("Custom Font Demo"),
-          ),
-        ],
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          //set of stacked widgets
+          children: [
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, MaterialDesignScreen.routeName),
+              child: Text("Material Design Demo", style: Theme.of(context).textTheme.button),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, ImageScreen.routeName),
+              child: Text("Image Demo", style: Theme.of(context).textTheme.button),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, ButtonScreen.routeName),
+              child: Text("Button Demo", style: Theme.of(context).textTheme.button),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, FontScreen.routeName),
+              child: Text("Custom Font Demo", style: Theme.of(context).textTheme.button),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, RowColScreen.routeName),
+              child: Text("Row Column Demo", style: Theme.of(context).textTheme.button)
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, ExpandedWidgetScreen.routeName),
+              child: Text("Expanded Widget Demo", style: Theme.of(context).textTheme.button)
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, BusinessCardScreen.routeName),
+              child: Text("My Business Card", style: Theme.of(context).textTheme.button)
+            ),
+          ],
+        ),
       ), 
       //swing-out menu with hamburger menu icon
       drawer: Drawer(
